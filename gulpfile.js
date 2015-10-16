@@ -3,6 +3,7 @@ var connect = require('gulp-connect');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var webpack = require('gulp-webpack');
+var notify = require('gulp-notify');
 
 gulp.task('webserver', function() {
     connect.server({
@@ -16,7 +17,8 @@ gulp.task('webserver', function() {
 gulp.task('html', function() {
     gulp.src('src/html/*.html')
         .pipe(gulp.dest('target'))
-        .pipe(connect.reload());
+        .pipe(connect.reload())
+        .pipe(notify("Built Static Files"));
 });
 
 gulp.task('javascript', function() {
@@ -34,7 +36,8 @@ gulp.task('javascript', function() {
             }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('target/js'))
-        .pipe(connect.reload());
+        .pipe(connect.reload())
+        .pipe(notify("Built Javascript"));
 });
 gulp.task('sass', function() {
     gulp.src('src/scss/*.scss')
@@ -42,14 +45,15 @@ gulp.task('sass', function() {
             .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('target/styles'))
-        .pipe(connect.reload());
+        .pipe(connect.reload())
+        .pipe(notify("Built Stylesheets"));
 });
 
 
 gulp.task('watch', function() {
-    gulp.watch(['./src/scss/*.scss'], ['sass']);
-    gulp.watch(['./src/html/*.html'], ['html']);
-    gulp.watch(['./src/js/*.js'], ['javascript']);
+    gulp.watch(['src/scss/*.scss'], ['sass']);
+    gulp.watch(['src/html/*.html'], ['html']);
+    gulp.watch(['src/js/*.js'], ['javascript']);
 });        
 
 gulp.task('build', ['sass', 'html', 'javascript']);

@@ -1,4 +1,3 @@
 export function name() {
-    return 'World';
+    return 'Worlds';
 }
-

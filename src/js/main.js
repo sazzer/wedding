@@ -1,3 +1,3 @@
 import {name} from './second';
 
-alert('Hello, ' + name());
+console.log('Hello, ' + name());
