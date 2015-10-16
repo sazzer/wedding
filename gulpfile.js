@@ -27,7 +27,15 @@ gulp.task('javascript', function() {
             .pipe(webpack({
                 module: {
                     loaders: [
-                        { test: /\.js$/, loader: 'babel'}
+                        {
+                            test: /\.jsx?$/,
+                            exclude: /(node_modules)/,
+                            loader: 'babel',
+                            query: {
+                                optional: ['runtime'],
+                                stage: 0
+                            }
+                        }
                     ]
                 },
                 output: {
@@ -54,7 +62,7 @@ gulp.task('watch', function() {
     gulp.watch(['src/scss/*.scss'], ['sass']);
     gulp.watch(['src/html/*.html'], ['html']);
     gulp.watch(['src/js/*.js'], ['javascript']);
-});        
+});
 
 gulp.task('build', ['sass', 'html', 'javascript']);
 gulp.task('run', ['build', 'webserver', 'watch']);
