@@ -1,0 +1,22 @@
+{
+  "name": "wedding",
+  "version": "0.0.1",
+  "description": "Our Wedding Photo Site",
+  "scripts": {
+  },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sazzer/wedding.git"
+  },
+  "author": "Graham Cox <graham@grahamcox.co.uk>",
+  "bugs": {
+    "url": "https://github.com/sazzer/wedding/issues"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
