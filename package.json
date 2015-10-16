@@ -2,7 +2,10 @@
   "name": "wedding",
   "version": "0.0.1",
   "description": "Our Wedding Photo Site",
-  "scripts": {},
+  "scripts": {
+      "install": "gulp build",
+      "start": "gulp run"
+  },
   "engines": {
     "node": ">=0.12"
   },
