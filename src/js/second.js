@@ -1,5 +1,4 @@
-module.exports = {
-    name: function() {
-          return 'World';
-    }
+export function name() {
+    return 'World';
 }
+

@@ -1,3 +1,3 @@
-var second = require('./second');
+import {name} from './second';
 
-alert('Hello, ' + second.name());
+alert('Hello, ' + name());

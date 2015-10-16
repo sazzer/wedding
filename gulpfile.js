@@ -23,6 +23,11 @@ gulp.task('javascript', function() {
     gulp.src('src/js/main.js')
         .pipe(sourcemaps.init())
             .pipe(webpack({
+                module: {
+                    loaders: [
+                        { test: /\.js$/, loader: 'babel'}
+                    ]
+                },
                 output: {
                     filename: '[name].js'
                 }
