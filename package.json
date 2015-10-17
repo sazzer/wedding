@@ -18,6 +18,7 @@
     "url": "https://github.com/sazzer/wedding/issues"
   },
   "dependencies": {
+    "babel-runtime": "^5.8.25",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
   },
