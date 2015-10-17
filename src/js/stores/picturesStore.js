@@ -1,33 +1,5 @@
 import Reflux from 'reflux';
-
-const pictures = [
-    {
-        file: "JG0001.jpg",
-        title: "Hairdresser 1",
-        details: {
-            people: ["Julia", "Aaron"],
-            tags: "Hairdresser",
-            location: "Home"
-        }
-    }, {
-        file: "JG0002.jpg",
-        title: "Hairdresser 2",
-        details: {
-            people: ["Julia", "Aaron"],
-            tags: "Hairdresser",
-            location: "Home"
-        }
-    }, {
-        file: "JG0003.jpg",
-        title: "Hairdresser 3",
-        details: {
-            people: ["Julia", "Aaron"],
-            tags: "Hairdresser",
-            location: "Home"
-        }
-    }
-
-];
+import pictures from '../data.json';
 
 /**
  * Reflux Store that returns all of the pictures that are known

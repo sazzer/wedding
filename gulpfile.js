@@ -35,6 +35,10 @@ gulp.task('javascript', function() {
                                 optional: ['runtime'],
                                 stage: 0
                             }
+                        },
+                        {
+                            test: /\.json$/,
+                            loader: 'json'
                         }
                     ]
                 },
