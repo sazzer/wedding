@@ -59,9 +59,9 @@ gulp.task('sass', function() {
 
 
 gulp.task('watch', function() {
-    gulp.watch(['src/scss/*.scss'], ['sass']);
-    gulp.watch(['src/html/*.html'], ['html']);
-    gulp.watch(['src/js/*.js'], ['javascript']);
+    gulp.watch(['src/scss/**/*.scss'], ['sass']);
+    gulp.watch(['src/html/**/*.html'], ['html']);
+    gulp.watch(['src/js/**/*.js'], ['javascript']);
 });
 
 gulp.task('build', ['sass', 'html', 'javascript']);
