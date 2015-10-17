@@ -8,8 +8,20 @@ export const PicturesGrid = React.createClass({
     ],
     render: function() {
         const pictures = this.state.pictures;
-        const picturesList = pictures.map((p) => <li>{p.title}</li>);
+        const picturesList = pictures.map((p) => {
+            const url = `images/thumbnails/${p.file}`;
 
-        return <ul>{picturesList}</ul>;
+            return <div className="col-lg-2 col-md-2 col-xs-2 thumb">
+                <a class="thumbnail" href="#" title={p.title}>
+                    <img class="img-responsive" src={url} alt={p.title} />
+                </a>
+            </div>;
+        });
+
+        return <div class="container">
+            <div class="row">
+                {picturesList}
+            </div>
+        </div>;
     }
 });

@@ -4,6 +4,9 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var webpack = require('gulp-webpack');
 var notify = require('gulp-notify');
+var imageResize = require('gulp-image-resize');
+var debug = require('gulp-debug');
+var newer = require('gulp-newer');
 
 gulp.task('webserver', function() {
     connect.server({
@@ -61,6 +64,35 @@ gulp.task('sass', function() {
         .pipe(notify("Built Stylesheets"));
 });
 
+gulp.task('thumbnails', function() {
+    var target = 'target/images/thumbnails';
+    gulp.src('src/images/*.jpg')
+        .pipe(newer(target))
+        .pipe(debug({
+            title: 'Thumbnail'
+        }))
+        .pipe(imageResize({
+            width: 100,
+            height: 100
+        }))
+        .pipe(gulp.dest(target));
+});
+
+gulp.task('display', function() {
+    var target = 'target/images/display';
+    gulp.src('src/images/*.jpg')
+        .pipe(newer(target))
+        .pipe(debug({
+            title: 'Display'
+        }))
+        .pipe(imageResize({
+            width: 800,
+            height: 600
+        }))
+        .pipe(gulp.dest(target));
+});
+
+gulp.task('images', ['thumbnails', 'display']);
 
 gulp.task('watch', function() {
     gulp.watch(['src/scss/**/*.scss'], ['sass']);
