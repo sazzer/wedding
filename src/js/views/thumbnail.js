@@ -1,6 +1,10 @@
 import React from 'react';
 
 export const Thumbnail = React.createClass({
+    propTypes: {
+        onClick: React.PropTypes.func
+    },
+
     render: function() {
         const {file, title} = this.props;
         const url = `images/thumbnails/${file}`;
@@ -18,5 +22,6 @@ export const Thumbnail = React.createClass({
      */
     onClick: function(e) {
         console.log(`Clicked thumbnail: ${this.props.file}`);
+        this.props.onClick(this.props);
     }
 });
