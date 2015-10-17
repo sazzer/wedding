@@ -11,17 +11,25 @@ export const PicturesGrid = React.createClass({
         const picturesList = pictures.map((p) => {
             const url = `images/thumbnails/${p.file}`;
 
-            return <div className="col-lg-2 col-md-2 col-xs-2 thumb">
-                <a class="thumbnail" href="#" title={p.title}>
-                    <img class="img-responsive" src={url} alt={p.title} />
+            return <div className="col-lg-2 col-md-2 col-xs-2 thumb" key={p.file}>
+                <a className="thumbnail" href="#" title={p.title} onClick={this.onClick}>
+                    <img className="img-responsive" src={url} alt={p.title} />
                 </a>
             </div>;
         });
 
-        return <div class="container">
-            <div class="row">
+        return <div className="container">
+            <div className="row">
                 {picturesList}
             </div>
         </div>;
+    },
+
+    /**
+     * Handler for when a thumbnail is clicked
+     * @param e The even
+     */
+    onClick: function(e) {
+        console.log("Clicked thumbnail");
     }
 });

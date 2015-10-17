@@ -4,5 +4,5 @@ import {HomePage} from './views/home';
 
 ReactDOM.render(
     <HomePage />,
-    document.body
+    document.getElementById("body")
 );
